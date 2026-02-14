@@ -1,0 +1,44 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "soilClass": "D",
+        "hazardWeight": 0.7,
+        "description": "Suelo firme a blando",
+        "vs30Range": "180–360 m/s"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-116.72,31.78],[-116.50,31.78],[-116.50,31.96],[-116.72,31.96],[-116.72,31.78]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "soilClass": "C",
+        "hazardWeight": 0.4,
+        "description": "Suelo denso o roca blanda",
+        "vs30Range": "360–760 m/s"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-116.80,31.70],[-116.40,31.70],[-116.40,31.80],[-116.80,31.80],[-116.80,31.70]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "soilClass": "B",
+        "hazardWeight": 0.2,
+        "description": "Roca",
+        "vs30Range": "760–1500 m/s"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-116.80,31.96],[-116.40,31.96],[-116.40,32.10],[-116.80,32.10],[-116.80,31.96]]]
+      }
+    }
+  ]
+}
