@@ -1,0 +1,20 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "name": "Falla Agua Blanca (DEMO)", "type": "strike-slip" },
+      "geometry": { "type": "LineString", "coordinates": [[-116.76,31.84],[-116.52,31.90],[-116.42,31.98]] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Sistema San Miguel–Vallecitos (DEMO)", "type": "strike-slip" },
+      "geometry": { "type": "LineString", "coordinates": [[-116.68,31.74],[-116.58,31.86],[-116.49,32.02]] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Falla Ojos Negros (DEMO)", "type": "normal" },
+      "geometry": { "type": "LineString", "coordinates": [[-116.73,31.92],[-116.60,31.98],[-116.46,32.06]] }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "riesgosismico",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "apps/server",
+    "apps/web"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm:dev --workspace apps/server\" \"npm:dev --workspace apps/web\"",
+    "build": "npm run build --workspace apps/server && npm run build --workspace apps/web",
+    "start": "npm run build --workspace apps/web && npm run build --workspace apps/server && npm run start --workspace apps/server",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1",
+    "prisma": "^5.20.0"
+  }
+}
