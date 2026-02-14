@@ -15,23 +15,26 @@ const ClickHandler: React.FC<{ onMapClick: (lat: number, lon: number) => void }>
   return null;
 };
 
-const CenterUpdater: React.FC<{ lat: number; lon: number }> = ({ lat, lon }) => {
+const CenterUpdater: React.FC<{ lat: number; lon: number; focusKey: number }> = ({ lat, lon, focusKey }) => {
   const map = useMapEvents({});
+
   useEffect(() => {
-    map.setView([lat, lon], map.getZoom());
-  }, [lat, lon, map]);
+    map.flyTo([lat, lon], 16, { animate: true, duration: 0.5 });
+  }, [focusKey, lat, lon, map]);
+
   return null;
 };
 
 export const MapView: React.FC<{
   lat: number;
   lon: number;
+  focusKey: number;
   onChange: (lat: number, lon: number) => void;
-}> = ({ lat, lon, onChange }) => (
+}> = ({ lat, lon, focusKey, onChange }) => (
   <MapContainer center={[31.8667, -116.5964]} zoom={12} style={{ height: 420, width: '100%' }}>
     <TileLayer attribution='&copy; OpenStreetMap contributors' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
     <ClickHandler onMapClick={onChange} />
-    <CenterUpdater lat={lat} lon={lon} />
+    <CenterUpdater lat={lat} lon={lon} focusKey={focusKey} />
     <Marker
       icon={markerIcon}
       position={[lat, lon]}

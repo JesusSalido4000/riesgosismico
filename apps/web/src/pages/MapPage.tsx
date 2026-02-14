@@ -7,17 +7,22 @@ export const MapPage: React.FC<{
   lat: number;
   lon: number;
   address: string;
-  onLocationChange: (lat: number, lon: number, address?: string) => void;
+  focusKey: number;
+  locationError: string;
+  onPickAddress: (lat: number, lon: number, address: string) => void;
+  onMapPinMove: (lat: number, lon: number) => void;
+  onAddressInput: (address: string) => void;
   onNext: () => void;
-}> = ({ lat, lon, address, onLocationChange, onNext }) => (
+}> = ({ lat, lon, address, focusKey, locationError, onPickAddress, onMapPinMove, onAddressInput, onNext }) => (
   <div>
     <StepHeader title="1) Selecciona ubicación" />
-    <AddressSearch onSelect={(newLat, newLon, newAddress) => onLocationChange(newLat, newLon, newAddress)} />
-    <MapView lat={lat} lon={lon} onChange={(newLat, newLon) => onLocationChange(newLat, newLon)} />
+    <AddressSearch onPick={onPickAddress} />
+    <MapView lat={lat} lon={lon} focusKey={focusKey} onChange={onMapPinMove} />
+    {locationError && <p style={{ color: '#7f0000' }}>{locationError}</p>}
     <p>Lat: {lat.toFixed(5)} | Lon: {lon.toFixed(5)}</p>
     <input
       value={address}
-      onChange={(e) => onLocationChange(lat, lon, e.target.value)}
+      onChange={(e) => onAddressInput(e.target.value)}
       placeholder="Dirección seleccionada"
       style={{ width: '100%', padding: 8, marginBottom: 12 }}
     />
